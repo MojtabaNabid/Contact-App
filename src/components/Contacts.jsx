@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
+
+import ContactsList from "./ContactsList";
 
 function Contacts() {
 
     const [contacts, setContacts] = useState([]) // for saving all the contacts in one place
+    const [alert, setAlert] = useState("");
     const [contact, setContact] = useState({
         name: "", lastName: "", email: "", phone: "",
     }) // to manage input states
@@ -14,6 +17,11 @@ function Contacts() {
     }
 
     const addHandler = () => {
+        if (!contact.name || !contact.lastName || !contact.email || !contact.phone) {
+            setAlert("Please Enter Valid Data!!!");
+            return;
+        }
+        setAlert("");
         setContacts((contacts) => ([...contacts, contact])); // new contacts will be added to the previous contacts
         setContact({
             name: "", lastName: "", email: "", phone: "",
@@ -28,6 +36,8 @@ function Contacts() {
         <input type="tel" placeholder="Phone" name="phone" value={contact.phone} onChange={changeHandler}/>
         <button onClick={addHandler}>Add Contact</button>
       </div>
+      <div>{alert && <p>{alert}</p>}</div>
+      <ContactsList contacts={contacts}/>
     </div>
   )
 }
