@@ -2,7 +2,7 @@ import { useState } from "react"
 
 function Contacts() {
 
-
+    const [contacts, setContacts] = useState([]) // for saving all the contacts in one place
     const [contact, setContact] = useState({
         name: "", lastName: "", email: "", phone: "",
     }) // to manage input states
@@ -10,12 +10,14 @@ function Contacts() {
     const changeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        // console.log(name, value)
-        setContact((contact) => ({...contact, [name]: value}));
+        setContact((contact) => ({...contact, [name]: value})); 
     }
 
     const addHandler = () => {
-        console.log(contact)
+        setContacts((contacts) => ([...contacts, contact])); // new contacts will be added to the previous contacts
+        setContact({
+            name: "", lastName: "", email: "", phone: "",
+        }); // for reseting the form inputs
     }
   return (
     <div>
