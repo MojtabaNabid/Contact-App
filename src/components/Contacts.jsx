@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 import ContactsList from "./ContactsList";
+import inputs from "../constants/inputs"; // puting constants outside of the component
+
+
 
 function Contacts() {
 
@@ -17,11 +20,12 @@ function Contacts() {
     }
 
     const addHandler = () => {
+        // checking inputs if they are empty
         if (!contact.name || !contact.lastName || !contact.email || !contact.phone) {
             setAlert("Please Enter Valid Data!!!");
             return;
         }
-        setAlert("");
+        setAlert(""); // if inputs are not empty
         setContacts((contacts) => ([...contacts, contact])); // new contacts will be added to the previous contacts
         setContact({
             name: "", lastName: "", email: "", phone: "",
@@ -30,14 +34,20 @@ function Contacts() {
   return (
     <div>
       <div>
-        <input type="text" placeholder="Name" name="name" value={contact.name} onChange={changeHandler}/>
-        <input type="text" placeholder="Last Name" name="lastName" value={contact.lastName} onChange={changeHandler}/>
-        <input type="email" placeholder="Email" name="email" value={contact.email} onChange={changeHandler}/>
-        <input type="tel" placeholder="Phone" name="phone" value={contact.phone} onChange={changeHandler}/>
+        {inputs.map((input, index) => (       //building inputs
+            <input 
+            key={index}
+            type={input.type} 
+            placeholder={input.placeholder} 
+            name={input.name}
+            value={contact[input.name]}
+            onChange={changeHandler}  
+            />
+        ))}
         <button onClick={addHandler}>Add Contact</button>
       </div>
-      <div>{alert && <p>{alert}</p>}</div>
-      <ContactsList contacts={contacts}/>
+      <div>{alert && <p>{alert}</p>}</div> //if alert is empty, it means "Falsy"
+      <ContactsList contacts={contacts}/> //giving ContactList component contacts as props
     </div>
   )
 }
