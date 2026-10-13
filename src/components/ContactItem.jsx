@@ -1,6 +1,5 @@
 
 function ContactItem({data: {id, name, lastName, email, phone}}) {
-    // console.log(data)
   return (
     <li key={id}>
         <p>{name}{lastName}</p>
