@@ -36,7 +36,7 @@ function Contacts() {
       <div>
         {inputs.map((input, index) => (       //building inputs
             <input 
-            key={index}
+            key={input.name}
             type={input.type} 
             placeholder={input.placeholder} 
             name={input.name}
