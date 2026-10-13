@@ -48,7 +48,7 @@ function Contacts() {
         <button onClick={addHandler}>Add Contact</button>
       </div>
         <div>{alert && <p>{alert}</p>}</div> {/*if alert is empty, it means "Falsy" */}
-      <ContactsList contacts={contacts}/> {/*giving ContactList component contacts as props */}
+      <ContactsList contacts={contacts} setContacts={setContacts}/> {/*giving ContactList component contacts as props */}
     </div>
   )
 }
