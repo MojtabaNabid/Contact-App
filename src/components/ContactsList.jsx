@@ -1,13 +1,13 @@
 import ContactItem from "./ContactItem"
 
-function ContactsList({contacts}) {
+function ContactsList({contacts, deleteHandler}) {
   return (
     <div>
       <h3>Contacts List</h3>
       {(contacts.length) ?
         <ul>
           {contacts.map(
-            contact => (<ContactItem data={contact} key={contact.id} />)
+            contact => (<ContactItem data={contact} key={contact.id} deleteHandler={deleteHandler} />)
             )
           }
         </ul> : 

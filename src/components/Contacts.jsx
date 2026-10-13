@@ -32,6 +32,12 @@ function Contacts() {
             name: "", lastName: "", email: "", phone: "",
         }); // for reseting the form inputs
     }
+    // defining deleteHandler and sending it as props to Contact Item 
+    const deleteHandler = (id) => {
+        const newContacts = contacts.filter((contact) => contact.id !== id)
+        setContacts(newContacts)
+    }
+
   return (
     <div>
       <div>
@@ -48,7 +54,7 @@ function Contacts() {
         <button onClick={addHandler}>Add Contact</button>
       </div>
         <div>{alert && <p>{alert}</p>}</div> {/*if alert is empty, it means "Falsy" */}
-      <ContactsList contacts={contacts}/> {/*giving ContactList component contacts as props */}
+      <ContactsList contacts={contacts} deleteHandler={deleteHandler}/> {/*giving ContactList component contacts as props */}
     </div>
   )
 }
