@@ -1,7 +1,7 @@
 import { useState } from "react";
-
 import ContactsList from "./ContactsList";
 import inputs from "../constants/inputs"; // puting constants outside of the component
+import { v4 } from "uuid";
 
 
 
@@ -10,7 +10,7 @@ function Contacts() {
     const [contacts, setContacts] = useState([]) // for saving all the contacts in one place
     const [alert, setAlert] = useState("");
     const [contact, setContact] = useState({
-        name: "", lastName: "", email: "", phone: "",
+        id: "", name: "", lastName: "", email: "", phone: "",
     }) // to manage input states
 
     const changeHandler = (event) => {
@@ -26,7 +26,8 @@ function Contacts() {
             return;
         }
         setAlert(""); // if inputs are not empty
-        setContacts((contacts) => ([...contacts, contact])); // new contacts will be added to the previous contacts
+        const newContact = {...contact, id: v4()}
+        setContacts((contacts) => ([...contacts, newContact])); // new contacts will be added to the previous contacts
         setContact({
             name: "", lastName: "", email: "", phone: "",
         }); // for reseting the form inputs
@@ -46,8 +47,8 @@ function Contacts() {
         ))}
         <button onClick={addHandler}>Add Contact</button>
       </div>
-      <div>{alert && <p>{alert}</p>}</div> //if alert is empty, it means "Falsy"
-      <ContactsList contacts={contacts}/> //giving ContactList component contacts as props
+        <div>{alert && <p>{alert}</p>}</div> {/*if alert is empty, it means "Falsy" */}
+      <ContactsList contacts={contacts}/> {/*giving ContactList component contacts as props */}
     </div>
   )
 }
