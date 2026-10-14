@@ -1,8 +1,9 @@
 import { useState } from "react";
-import ContactsList from "./ContactsList";
 import inputs from "../constants/inputs"; // puting constants outside of the component
 import { v4 } from "uuid";
 
+import ContactsList from "./ContactsList";
+import styles from "./Contacts.module.css"
 
 
 function Contacts() {
@@ -39,8 +40,8 @@ function Contacts() {
     }
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.form}>
         {inputs.map((input, index) => (       //building inputs
             <input 
             key={input.name}
@@ -53,7 +54,7 @@ function Contacts() {
         ))}
         <button onClick={addHandler}>Add Contact</button>
       </div>
-        <div>{alert && <p>{alert}</p>}</div> {/*if alert is empty, it means "Falsy" */}
+        <div className={styles.alert}>{alert && <p>{alert}</p>}</div> {/*if alert is empty, it means "Falsy" */}
       <ContactsList contacts={contacts} deleteHandler={deleteHandler}/> {/*giving ContactList component contacts as props */}
     </div>
   )
