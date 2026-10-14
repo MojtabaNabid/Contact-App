@@ -1,16 +1,117 @@
-# React + Vite
+# Contact App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A practice project built with **React** and **Vite** to strengthen my React fundamentals and follow a more professional Git/GitHub development workflow.
 
-Currently, two official plugins are available:
+The project focuses on component-based development, state and props, form handling, list rendering, conditional rendering, and iterative refactoring.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Contact App Preview](./screenshots/contact-app-preview.png)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add contact information using:
+  - First name
+  - Last name
+  - Email
+  - Phone number
+- Render contacts dynamically in a contact list
+- Display an empty-state message when there are no contacts
+- Organize UI logic into reusable React components
+- Clean and simple user interface
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript
+- Vite
+- CSS
+- Git
+- GitHub
+
+## What I Am Practicing
+
+This project is mainly a learning project. I am using it to improve my skills in:
+
+- React components
+- Props
+- State management
+- Controlled form inputs
+- Rendering lists with `map()`
+- Conditional rendering
+- Component refactoring
+- Git branches
+- GitHub Issues
+- Pull Requests
+- Code review workflow
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/MojtabaNabid/contact-app.git
+```
+
+Go to the project directory:
+
+```bash
+cd contact-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown by Vite in your browser. By default, it is usually:
+
+```text
+http://localhost:5173/
+```
+
+## Development Workflow
+
+For larger changes and features, I use a GitHub-style workflow:
+
+```text
+Issue
+  ↓
+Feature / Refactor Branch
+  ↓
+Development
+  ↓
+Commit & Push
+  ↓
+Pull Request
+  ↓
+Code Review
+  ↓
+Merge into main
+```
+
+This repository is also being used to practice a workflow similar to collaborative software development, even though the project itself is currently developed individually.
+
+## Planned Improvements
+
+- Form validation
+- Edit contacts
+- Search and filter contacts
+- Persist contacts with Local Storage
+- Improve accessibility
+- Add automated tests
+- Continue refactoring components as the project grows
+
+## Repository
+
+[github.com/MojtabaNabid/contact-app](https://github.com/MojtabaNabid/contact-app)
+
+## Author
+
+**Mojtaba Nabid (Nik)**  
+GitHub: [@MojtabaNabid](https://github.com/MojtabaNabid)
